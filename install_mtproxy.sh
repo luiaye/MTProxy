@@ -5,6 +5,7 @@ PORT="${1:-33380}"
 WORKDIR="/opt/MTProxy"
 SERVICE="/etc/systemd/system/mtproxy.service"
 SECRET_FILE="/root/MTProxy/mtproxy.secret"
+mkdir -p "$(dirname "$SECRET_FILE")"
 
 if [[ $EUID -ne 0 ]]; then
   echo "请用 root 运行：sudo bash $0 [port]"
